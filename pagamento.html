@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Finalização do pedido - Level 3D Studio"
+    >
+
+    <title>Pagamento | Level 3D Studio</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+
+            --navy: #071A3D;
+            --navy-dark: #030A18;
+            --navy-deep: #020711;
+            --navy-light: #0D2855;
+
+            --orange: #FF7A00;
+            --orange-light: #FF9A3D;
+            --orange-dark: #D95F00;
+
+            --cyan: #00D9FF;
+            --cyan-dark: #00AFCF;
+
+            --lime: #B7FF00;
+            --lime-dark: #8FC900;
+
+            --magenta: #FF2DA6;
+            --magenta-dark: #D91B87;
+
+            --white: #FFFFFF;
+            --text: #EAF2FF;
+            --text-secondary: #9BAAC0;
+            --text-muted: #687991;
+
+            --card: #091B3A;
+            --card-light: #0D244A;
+
+            --border: rgba(255,255,255,0.10);
+
+        }
+
+        body {
+
+            font-family: "Inter", sans-serif;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(0,217,255,0.08),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 90% 15%,
+                    rgba(255,122,0,0.08),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(183,255,0,0.04),
+                    transparent 30%
+                ),
+
+                var(--navy-deep);
+
+            color: var(--white);
+
+            min-height: 100vh;
+
+        }
+
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        .payment-header-bar {
+
+            width: 100%;
+
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(3,10,24,0.94);
+
+            backdrop-filter: blur(15px);
+
+            position: relative;
+
+            z-index: 10;
+
+        }
+
+
+        .header-inner {
+
+            width: min(1200px, 92%);
+
+            margin: auto;
+
+            height: 82px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .logo-symbol {
+
+            width: 48px;
+            height: 48px;
+
+            border: 2px solid var(--orange);
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(255,122,0,0.12),
+                    rgba(0,217,255,0.05)
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            color: var(--orange);
+
+            box-shadow:
+                0 0 18px rgba(255,122,0,0.10);
+
+        }
+
+
+        .logo-name {
+
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 0.85;
+
+        }
+
+
+        .logo-name .level {
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: var(--cyan);
+
+            text-shadow:
+                0 0 12px rgba(0,217,255,0.18);
+
+        }
+
+
+        .logo-name .three-d {
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            color: var(--lime);
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 0 12px rgba(183,255,0,0.16);
+
+        }
+
+
+        .logo-name .studio {
+
+            font-size: 7px;
+
+            letter-spacing: 3px;
+
+            color: var(--magenta);
+
+        }
+
+        .back-link {
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .back-link:hover {
+
+            color: var(--orange);
+
+        }
+
+        .checkout-wrapper {
+
+            width: min(1200px, 92%);
+
+            margin: 0 auto;
+
+            padding: 60px 0 100px;
+
+        }
+
+        .checkout-heading {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        .checkout-tag {
+
+            display: inline-block;
+
+            color: var(--orange);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .checkout-heading h1 {
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: clamp(36px, 5vw, 60px);
+
+            line-height: 1;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .checkout-heading h1 span {
+
+            color: var(--cyan);
+
+        }
+
+
+        .checkout-heading p {
+
+            color: var(--text-secondary);
+
+            font-size: 15px;
+
+        }
+
+
+        .checkout-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            align-items: start;
+
+        }
+
+        .checkout-card {
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(13,40,85,0.72),
+                    rgba(7,26,61,0.94)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.20);
+
+        }
+
+
+        .checkout-card h2 {
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 25px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .checkout-label {
+
+            display: block;
+
+            color: var(--cyan);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        #paymentItems {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+        }
+
+
+        .payment-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(13,40,85,0.75),
+                    rgba(7,26,61,0.85)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .payment-item:hover {
+
+            border-color:
+                rgba(0,217,255,0.25);
+
+        }
+
+
+        .payment-item-image {
+
+            width: 58px;
+
+            height: 58px;
+
+            flex-shrink: 0;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--orange),
+                    var(--orange-dark)
+                );
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--white);
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 5px 20px rgba(255,122,0,0.16);
+
+        }
+
+
+        .payment-item-info {
+
+            flex: 1;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+
+        }
+
+
+        .payment-item-info strong {
+
+            font-size: 14px;
+
+        }
+
+
+        .payment-item-info span {
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+
+        }
+
+
+        .payment-item-price {
+
+            font-size: 14px;
+
+            white-space: nowrap;
+
+            color: var(--lime);
+
+        }
+
+        .payment-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-top: 1px solid var(--border);
+
+            margin-top: 25px;
+
+            padding-top: 22px;
+
+        }
+
+
+        .payment-total span {
+
+            color: var(--text-secondary);
+
+        }
+
+
+        .payment-total strong {
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 25px;
+
+            color: var(--orange);
+
+        }
+
+
+        .payment-methods {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .payment-option {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 17px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: var(--card-light);
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .payment-option:hover {
+
+            border-color:
+                rgba(255,122,0,0.45);
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .payment-option:has(input:checked) {
+
+            border-color: var(--orange);
+
+            background:
+                rgba(255,122,0,0.06);
+
+        }
+
+
+        .payment-option input {
+
+            accent-color: var(--orange);
+
+        }
+
+
+        .payment-option strong {
+
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .payment-option small {
+
+            display: block;
+
+            color: var(--text-secondary);
+
+            font-size: 11px;
+
+        }
+
+        .pix-area {
+
+            display: none;
+
+            padding: 25px;
+
+            background:
+                rgba(0,217,255,0.04);
+
+            border: 1px solid
+                rgba(0,217,255,0.20);
+
+            border-radius: 14px;
+
+            margin-bottom: 25px;
+
+            text-align: center;
+
+        }
+
+
+        .pix-area.active {
+
+            display: block;
+
+        }
+
+
+        .pix-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            background: var(--cyan);
+
+            color: var(--navy-deep);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 900;
+
+            font-size: 13px;
+
+            box-shadow:
+                0 0 25px rgba(0,217,255,0.16);
+
+        }
+
+
+        .pix-area h3 {
+
+            font-family: "Space Grotesk", sans-serif;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .pix-area p {
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .credit-area {
+
+            display: none;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .credit-area.active {
+
+            display: block;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
+            color: var(--text);
+
+        }
+
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            height: 48px;
+
+            padding: 0 14px;
+
+            background: var(--navy-deep);
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            color: var(--white);
+
+            outline: none;
+
+            transition: 0.2s;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: var(--cyan);
+
+            box-shadow:
+                0 0 0 3px rgba(0,217,255,0.06);
+
+        }
+
+
+        .form-group input::placeholder {
+
+            color: var(--text-muted);
+
+        }
+
+
+        .form-group select option {
+
+            background: var(--navy);
+
+            color: var(--white);
+
+        }
+
+
+        .card-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+        }
+
+
+        .payment-button {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--orange),
+                    var(--orange-dark)
+                );
+
+            color: var(--white);
+
+            font-weight: 800;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 8px 25px rgba(255,122,0,0.15);
+
+        }
+
+
+        .payment-button:hover {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--orange-light),
+                    var(--orange)
+                );
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 10px 30px rgba(255,122,0,0.22);
+
+        }
+
+
+        .payment-button:disabled {
+
+            opacity: 0.5;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+
+        }
+
+        .payment-message {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: var(--lime);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+
+        .empty-payment {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: var(--text-secondary);
+
+        }
+
+
+        .empty-payment p {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .store-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 12px 20px;
+
+            border: 1px solid var(--cyan);
+
+            border-radius: 8px;
+
+            color: var(--cyan);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+
+        }
+
+
+        .store-button:hover {
+
+            background: rgba(0,217,255,0.08);
+
+        }
+
+
+
+        .checkout-footer {
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+
+        }
+
+
+
+
+        @media (max-width: 800px) {
+
+            .checkout-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .payment-methods {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .checkout-wrapper {
+
+                padding-top: 35px;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .header-inner {
+
+                height: 70px;
+
+            }
+
+
+            .logo-symbol {
+
+                width: 42px;
+                height: 42px;
+
+            }
+
+
+            .logo-name .level {
+
+                font-size: 13px;
+
+            }
+
+
+            .logo-name .three-d {
+
+                font-size: 17px;
+
+            }
+
+
+            .back-link {
+
+                font-size: 12px;
+
+            }
+
+
+            .checkout-card {
+
+                padding: 20px;
+
+            }
+
+
+            .payment-item {
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .payment-item-price {
+
+                margin-left: 73px;
+
+            }
+
+
+            .card-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<header class="payment-header-bar">
+
+    <div class="header-inner">
+
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                L3D
+            </div>
+
+
+            <div class="logo-name">
+
+                <span class="level">
+                    LEVEL
+                </span>
+
+                <span class="three-d">
+                    3D
+                </span>
+
+                <span class="studio">
+                    STUDIO
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="index.html#produtos"
+            class="back-link"
+        >
+            ← Voltar para a loja
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+    <div class="checkout-wrapper">
+
+
+
+        <header class="checkout-heading">
+
+            <span class="checkout-tag">
+                FINALIZAÇÃO DO PEDIDO
+            </span>
+
+
+            <h1>
+                Finalize seu
+                <span>pedido.</span>
+            </h1>
+
+
+            <p>
+                Confira seus produtos e escolha a forma de pagamento.
+            </p>
+
+        </header>
+
+
+
+
+        <div class="checkout-grid">
+
+
+
+            <section class="checkout-card">
+
+                <span class="checkout-label">
+                    SEU PEDIDO
+                </span>
+
+
+                <h2>
+                    Resumo do pedido
+                </h2>
+
+
+                <div id="paymentItems">
+
+                    
+
+                </div>
+
+
+                <div class="payment-total">
+
+                    <span>
+                        Total
+                    </span>
+
+
+                    <strong id="paymentTotal">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+
+
+            <section class="checkout-card">
+
+                <span class="checkout-label">
+                    PAGAMENTO
+                </span>
+
+
+                <h2>
+                    Forma de pagamento
+                </h2>
+
+
+
+                <!-- MÉTODOS -->
+
+                <div class="payment-methods">
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="pix"
+                            checked
+                        >
+
+
+                        <div>
+
+                            <strong>
+                                PIX
+                            </strong>
+
+
+                            <small>
+                                Pagamento instantâneo
+                            </small>
+
+                        </div>
+
+                    </label>
+
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="credit"
+                        >
+
+
+                        <div>
+
+                            <strong>
+                                Cartão de crédito
+                            </strong>
+
+
+                            <small>
+                                Pagamento com cartão
+                            </small>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+
+
+                <div
+                    id="pixArea"
+                    class="pix-area active"
+                >
+
+                    <div class="pix-icon">
+                        PIX
+                    </div>
+
+
+                    <h3>
+                        Pagamento via PIX
+                    </h3>
+
+
+                    <p>
+                        Ao confirmar seu pedido, entraremos em contato
+                        para enviar os dados do PIX e finalizar o pagamento.
+                    </p>
+
+                </div>
+
+
+
+                <div
+                    id="creditArea"
+                    class="credit-area"
+                >
+
+
+                    <div class="form-group">
+
+                        <label for="cardNumber">
+                            Número do cartão
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="cardNumber"
+                            placeholder="0000 0000 0000 0000"
+                            maxlength="19"
+                            autocomplete="cc-number"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="cardName">
+                            Nome no cartão
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="cardName"
+                            placeholder="Nome completo"
+                            autocomplete="cc-name"
+                        >
+
+                    </div>
+
+
+
+                    <div class="card-row">
+
+
+                        <div class="form-group">
+
+                            <label for="cardExpiry">
+                                Validade
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="cardExpiry"
+                                placeholder="MM/AA"
+                                maxlength="5"
+                                autocomplete="cc-exp"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="cardCVV">
+                                CVV
+                            </label>
+
+
+                            <input
+                                type="password"
+                                id="cardCVV"
+                                placeholder="000"
+                                maxlength="4"
+                                autocomplete="cc-csc"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="installments">
+                            Parcelamento
+                        </label>
+
+
+                        <select id="installments">
+
+                            <option value="1">
+                                1x sem juros
+                            </option>
+
+                            <option value="2">
+                                2x sem juros
+                            </option>
+
+                            <option value="3">
+                                3x sem juros
+                            </option>
+
+                            <option value="4">
+                                4x sem juros
+                            </option>
+
+                            <option value="5">
+                                5x sem juros
+                            </option>
+
+                            <option value="6">
+                                6x sem juros
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="finishPayment"
+                    class="payment-button"
+                    type="button"
+                >
+                    Confirmar pedido
+                </button>
+
+
+                <p
+                    id="paymentMessage"
+                    class="payment-message"
+                ></p>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="checkout-footer">
+
+    © 2026 Level 3D Studio
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    console.log("Página de pagamento carregada.");
+
+
+    const paymentItems =
+        document.getElementById("paymentItems");
+
+
+    const paymentTotal =
+        document.getElementById("paymentTotal");
+
+
+    const pixArea =
+        document.getElementById("pixArea");
+
+
+    const creditArea =
+        document.getElementById("creditArea");
+
+
+    const finishPayment =
+        document.getElementById("finishPayment");
+
+
+    const paymentMessage =
+        document.getElementById("paymentMessage");
+
+
+
+    const products = [
+
+        {
+            id: 1,
+            name: "Vaso Geométrico",
+            price: 49.90
+        },
+
+        {
+            id: 2,
+            name: "Suporte para Celular",
+            price: 34.90
+        },
+
+        {
+            id: 3,
+            name: "Mini Figura Geek",
+            price: 59.90
+        },
+
+        {
+            id: 4,
+            name: "Organizador de Mesa",
+            price: 44.90
+        },
+
+        {
+            id: 5,
+            name: "Luminária Decorativa",
+            price: 89.90
+        },
+
+        {
+            id: 6,
+            name: "Porta-Fone",
+            price: 29.90
+        },
+
+        {
+            id: 7,
+            name: "Estatueta Geek",
+            price: 79.90
+        }
+
+    ];
+
+    let cart = [];
+
+
+    try {
+
+        cart =
+            JSON.parse(
+                localStorage.getItem("level3d_cart")
+            ) || [];
+
+    } catch (error) {
+
+        console.error(
+            "Erro ao ler o carrinho:",
+            error
+        );
+
+        cart = [];
+
+    }
+
+
+    console.log(
+        "Carrinho encontrado:",
+        cart
+    );
+
+    function money(value) {
+
+        return Number(value).toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+
+    }
+
+
+    if (
+        !Array.isArray(cart) ||
+        cart.length === 0
+    ) {
+
+        paymentItems.innerHTML = `
+
+            <div class="empty-payment">
+
+                <p>
+                    Seu carrinho está vazio.
+                </p>
+
+
+                <a
+                    href="index.html#produtos"
+                    class="store-button"
+                >
+                    Voltar para a loja
+                </a>
+
+            </div>
+
+        `;
+
+
+        paymentTotal.textContent =
+            money(0);
+
+
+        finishPayment.disabled = true;
+
+
+        return;
+
+    }
+
+
+
+    let total = 0;
+
+    let itemsHTML = "";
+
+
+    cart.forEach(function (item) {
+
+
+        const product =
+            products.find(function (product) {
+
+                return (
+                    Number(product.id) ===
+                    Number(item.id)
+                );
+
+            });
+
+
+        if (!product) {
+
+            console.warn(
+                "Produto não encontrado:",
+                item
+            );
+
+            return;
+
+        }
+
+
+        const quantity =
+            Number(item.quantity) || 1;
+
+
+        const subtotal =
+            product.price * quantity;
+
+
+        total += subtotal;
+
+
+        itemsHTML += `
+
+            <div class="payment-item">
+
+
+                <div class="payment-item-image">
+                    3D
+                </div>
+
+
+                <div class="payment-item-info">
+
+                    <strong>
+                        ${product.name}
+                    </strong>
+
+
+                    <span>
+                        Quantidade: ${quantity}
+                    </span>
+
+                </div>
+
+
+                <strong class="payment-item-price">
+                    ${money(subtotal)}
+                </strong>
+
+
+            </div>
+
+        `;
+
+    });
+
+
+    paymentItems.innerHTML =
+        itemsHTML;
+
+
+    paymentTotal.textContent =
+        money(total);
+
+
+    document
+        .querySelectorAll(
+            'input[name="payment"]'
+        )
+        .forEach(function (input) {
+
+
+            input.addEventListener(
+                "change",
+                function () {
+
+
+                    if (
+                        this.value === "pix"
+                    ) {
+
+                        pixArea.classList.add(
+                            "active"
+                        );
+
+                        creditArea.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+
+                    if (
+                        this.value === "credit"
+                    ) {
+
+                        creditArea.classList.add(
+                            "active"
+                        );
+
+                        pixArea.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+    const cardNumber =
+        document.getElementById(
+            "cardNumber"
+        );
+
+
+    if (cardNumber) {
+
+        cardNumber.addEventListener(
+            "input",
+            function () {
+
+
+                let value =
+                    this.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                value =
+                    value.substring(
+                        0,
+                        16
+                    );
+
+
+                value =
+                    value.replace(
+                        /(\d{4})(?=\d)/g,
+                        "$1 "
+                    );
+
+
+                this.value =
+                    value;
+
+            }
+        );
+
+    }
+
+    const cardExpiry =
+        document.getElementById(
+            "cardExpiry"
+        );
+
+
+    if (cardExpiry) {
+
+        cardExpiry.addEventListener(
+            "input",
+            function () {
+
+
+                let value =
+                    this.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                value =
+                    value.substring(
+                        0,
+                        4
+                    );
+
+
+                if (
+                    value.length > 2
+                ) {
+
+                    value =
+                        value.substring(
+                            0,
+                            2
+                        )
+                        +
+                        "/"
+                        +
+                        value.substring(
+                            2
+                        );
+
+                }
+
+
+                this.value =
+                    value;
+
+            }
+        );
+
+    }
+
+    const cardCVV =
+        document.getElementById(
+            "cardCVV"
+        );
+
+
+    if (cardCVV) {
+
+        cardCVV.addEventListener(
+            "input",
+            function () {
+
+
+                this.value =
+                    this.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    )
+                    .substring(
+                        0,
+                        4
+                    );
+
+            }
+        );
+
+    }
+
+    finishPayment.addEventListener(
+        "click",
+        function () {
+
+
+            const selected =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+
+            if (!selected) {
+
+                paymentMessage.textContent =
+                    "Selecione uma forma de pagamento.";
+
+                return;
+
+            }
+
+
+            if (
+                selected.value === "credit"
+            ) {
+
+
+                const number =
+                    cardNumber.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                const name =
+                    document
+                    .getElementById("cardName")
+                    .value
+                    .trim();
+
+
+                const expiry =
+                    cardExpiry.value.trim();
+
+
+                const cvv =
+                    cardCVV.value.trim();
+
+
+                if (
+                    number.length !== 16 ||
+                    name.length < 3 ||
+                    expiry.length !== 5 ||
+                    cvv.length < 3
+                ) {
+
+                    paymentMessage.textContent =
+                        "Preencha corretamente os dados do cartão.";
+
+                    return;
+
+                }
+
+            }
+
+
+            paymentMessage.textContent =
+                "✓ Pedido recebido com sucesso! Em breve entraremos em contato para finalizar o pagamento.";
+
+
+            finishPayment.disabled =
+                true;
+
+        }
+    );
+
+});
+
+</script>
+
+
+</body>
+
+</html>
