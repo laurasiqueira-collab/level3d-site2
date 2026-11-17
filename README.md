@@ -64,4 +64,22 @@ LEVEL3D-STUDIO/
 ## ▶️ How to Run
 
 1. Download or clone this repository.
-2. Open
+2. Open the project folder in Visual Studio Code.
+3. Open `index.html` in your browser.
+4. For a better development experience, use the Live Server extension.
+
+## 🎯 Project Goals
+
+Develop a web interface that combines design, technology, and functionality while applying practical front-end development concepts.
+
+This project also explores user experience (UX), user interface (UI), code organization, and web application development.
+
+---
+
+<p align="center">
+  Developed with 💙, creativity, and technology.
+</p>
+
+<p align="center">
+  <strong>LEVEL 3D STUDIO © 2026</strong>
+</p>
