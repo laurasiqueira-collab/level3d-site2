@@ -1,55 +1,55 @@
 # 🚀 Level 3D Studio
 
 <p align="center">
-  <strong>Do digital para o real.</strong>
+  <strong>From digital to reality.</strong>
 </p>
 
 <p align="center">
-  Um projeto de desenvolvimento web criado para apresentar uma loja de impressão 3D criativa e personalizada, unindo tecnologia, design e experiência do usuário.
+  A web development project created to showcase a creative and customized 3D printing store, combining technology, design, and user experience.
 </p>
 
 ---
 
-## 💻 Sobre o projeto
+## 💻 About the Project
 
-O **Level 3D Studio** é um projeto de desenvolvimento front-end que apresenta uma plataforma para divulgação e comercialização de produtos impressos em 3D.
+**Level 3D Studio** is a front-end web development project designed to showcase and promote creative 3D-printed products.
 
-A proposta é oferecer uma experiência visual moderna e intuitiva, permitindo que os visitantes explorem produtos, conheçam as categorias disponíveis, solicitem projetos personalizados e visualizem seus pedidos no carrinho.
+The platform provides a modern and intuitive experience where visitors can explore products, browse categories, request customized projects, and manage their shopping cart.
 
-O projeto busca transformar ideias digitais em experiências reais por meio da tecnologia e da criatividade.
+The goal is to transform digital ideas into real experiences through technology and creativity.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🏠 Página inicial com apresentação da marca.
-- 🛍️ Catálogo de produtos.
-- 🔎 Filtros por categorias.
-- 🎨 Seção de projetos personalizados.
-- 🛒 Carrinho de compras com atualização de quantidade e valores.
-- 📦 Modal com detalhes dos produtos.
-- 💳 Direcionamento para página de pagamento.
-- 📩 Formulário de contato.
-- 📱 Layout com navegação responsiva.
+- 🏠 Homepage with brand presentation.
+- 🛍️ Product catalog.
+- 🔎 Category filters.
+- 🎨 Custom 3D project section.
+- 🛒 Shopping cart with quantity and price updates.
+- 📦 Product details modal.
+- 💳 Navigation to a payment page.
+- 📩 Contact form.
+- 📱 Responsive navigation and layout.
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Technologies
 
-| Tecnologia | Aplicação |
+| Technology | Purpose |
 |---|---|
-| HTML5 | Estruturação das páginas |
-| CSS3 | Estilização e responsividade |
-| JavaScript | Interatividade e funcionalidades |
-| Google Fonts | Tipografia e identidade visual |
+| HTML5 | Page structure |
+| CSS3 | Styling and responsiveness |
+| JavaScript | Interactivity and functionality |
+| Google Fonts | Typography and visual identity |
 
-## 🎨 Identidade visual
+## 🎨 Visual Identity
 
-O projeto utiliza uma identidade visual moderna, com cores inspiradas no universo da tecnologia e da impressão 3D.
+The project features a modern visual identity inspired by technology and 3D printing.
 
-- Azul-marinho: identidade e sofisticação.
-- Laranja: criatividade e inovação.
-- Azul-ciano: tecnologia.
-- Verde: destaque visual.
-- Rosa: personalidade e modernidade.
+- Navy blue: identity and sophistication.
+- Orange: creativity and innovation.
+- Cyan blue: technology.
+- Green: visual highlights.
+- Pink: personality and modern design.
 
-## 📂 Estrutura do projeto
+## 📂 Project Structure
 
 ```text
 LEVEL3D-STUDIO/
@@ -61,25 +61,7 @@ LEVEL3D-STUDIO/
 └── README.md
 ```
 
-## ▶️ Como executar o projeto
+## ▶️ How to Run
 
-1. Faça o download ou clone este repositório.
-2. Abra a pasta do projeto no Visual Studio Code.
-3. Abra o arquivo `index.html` no navegador.
-4. Para uma melhor experiência de desenvolvimento, utilize a extensão Live Server.
-
-## 🎯 Objetivo
-
-Desenvolver uma interface web que una design, tecnologia e funcionalidade, aplicando na prática conhecimentos de desenvolvimento front-end.
-
-O projeto também representa uma oportunidade de explorar conceitos de experiência do usuário (UX), interface do usuário (UI), organização de código e desenvolvimento de aplicações web.
-
----
-
-<p align="center">
-  Desenvolvido com 💙, criatividade e tecnologia.
-</p>
-
-<p align="center">
-  <strong>LEVEL 3D STUDIO © 2026</strong>
-</p>
+1. Download or clone this repository.
+2. Open
